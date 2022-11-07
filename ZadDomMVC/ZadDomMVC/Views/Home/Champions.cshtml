@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ZadDomMVC.Models.Champion>
+
+@{
+	ViewData["Title"] = "Bohaterowie";
+}
+<h1>Moi ulubieni bohaterowie:</h1>
+<table class="table">
+<thead>
+<tr>
+	<th>Imię</th>
+	<th>Tytuł</th>
+	<th>Region</th>
+	<th>Rola</th>
+	<th>Splash Art</th>
+	<th>Opis</th>
+	<th></th>
+</tr>
+</thead>
+<tbody>
+	@foreach(var champion in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => champion.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => champion.Subname)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => champion.Region)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => champion.Role)
+			</td>
+			<td>
+				<img class="rounded" src="~/images/@champion.Image" style="height: 9rem; width: 15rem"/>
+			</td>
+			<td>
+				@Html.ActionLink("Opis", "ChampionDetails", new {name = champion.Name})
+			</td>				
+		</tr>
+	}
+	</tbody>
+</table>
+@Html.ActionLink("Co o tym sądzisz? Napisz!", "WriteComment")

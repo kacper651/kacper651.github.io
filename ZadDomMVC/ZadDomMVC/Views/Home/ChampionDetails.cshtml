@@ -1,0 +1,17 @@
+﻿@model ZadDomMVC.Models.Champion
+
+@{
+	ViewData["Title"] = "Szczegóły i Opis";
+}
+
+<h1 style="text-align:center">Szczególy i opis bohatera</h1>
+<h4 style="text-align:center">@Model.Name</h4>
+<h4 style="text-align:center">Tytuł: @Model.Subname</h4>
+<img class="rounded center" src="~/images/@Model.Image" style="height: 40rem; width: 70rem"/>
+<br />
+<h5>Opis bohatera</h5>
+<p>@Model.Description</p>
+
+<hr />
+
+<a asp-action="Champions">Powrót</a>

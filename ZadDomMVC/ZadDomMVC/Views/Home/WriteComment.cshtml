@@ -1,0 +1,24 @@
+﻿@model ZadDomMVC.Models.Comment
+
+@{
+	ViewData["Title"] = "Napisz komentarz!";
+}
+
+<div>
+	<form asp-action="WriteComment" method = "POST">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+		
+
+		<div class="form-group">
+			<label asp-for="Content" class="control-label">Komentarz:</label>
+			<input asp-for="Content" class="form-control" placeholder="Tutaj skomentuj"/>
+			<span asp-validation-for="Content" class="text-danger"></span>
+		</div>
+
+		<div>
+			<input type="submit" value="Wyślij!" class="btn-primary btn-primary"/>
+		</div>
+		<input asp-for="Content" type="hidden" value=@ViewBag.comment/>
+	</form>
+</div>
